@@ -28,3 +28,8 @@ output "value_in_map1" {
 output "Second_value_in_list1" {
   value = element(var.v2, 4)
 }
+
+#when a variable is been used in a combination of string then we need to access variable using ${}
+output "fruit_Details" {
+  value = "Fruit Name - Apple, Quantity - ${var.fruits["apple"]["quantity"]}"
+}
