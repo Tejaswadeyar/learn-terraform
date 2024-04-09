@@ -33,7 +33,7 @@ resource "aws_route53_record" "backend" {
   name    = "backend-dev"
   type    = "A"
   ttl     = 30
-  records = [aws_instance.frontend.private_ip]
+  records = [aws_instance.backend.private_ip]
 }
 
 
@@ -53,7 +53,7 @@ resource "aws_route53_record" "mysql" {
   name    = "mysql-dev"
   type    = "A"
   ttl     = 30
-  records = [aws_instance.frontend.private_ip]
+  records = [aws_instance.mysql.private_ip]
 }
 
 
