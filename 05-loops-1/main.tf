@@ -5,3 +5,6 @@ resource "null_resource" "test" {
 
 # By providing count , resource will become list
 
+output "test" {
+  value = null_resource.test.*.id
+}
