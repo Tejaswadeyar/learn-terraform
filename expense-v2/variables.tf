@@ -2,7 +2,7 @@
 #  default = "ami-0f3c7d07486cad139"
 #}
 
-
+#data resource is used (up)
 
 variable "instance_type" {
   default = "t3.micro"
