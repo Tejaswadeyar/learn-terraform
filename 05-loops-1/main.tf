@@ -21,18 +21,18 @@ output "test" {
 #  }
 #}
 
-variable "component" {
+variable "components" {
   default = [ "frontend", "backend", "mysql"]
 }
 
 
 resource "aws_instance" "test" {
-  count                   = length(var.component)
+  count                   = length(var.components)
   ami                     = "ami-0f3c7d07486cad139"
   instance_type           = "t3.micro"
   vpc_security_group_ids  = ["sg-0107f6cbfc7566933"]
 
   tags = {
-    Name = "test-${count.index}"
+    Name = element(var.components, count.index)
   }
 }
