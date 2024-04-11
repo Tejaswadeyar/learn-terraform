@@ -20,7 +20,9 @@ variable "fruits2" {
 }
 
 
-resource "dummy_thin" "this1"{
+resource "null_resource" "test1" {
   for_each = var.fruits1
-  name = "$(each.key} = ${each.value}"
+  provisioner "local-exec" {
+    command = "echo ${each.key} = ${each.value}"
+  }
 }
