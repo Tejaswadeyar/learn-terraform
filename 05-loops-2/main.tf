@@ -26,3 +26,10 @@ resource "null_resource" "test1" {
     command = "echo ${each.key} = ${each.value}"
   }
 }
+
+resource "null_resource" "test2" {
+  for_each   = var.fruits2
+  provisioner "local-exec" {
+    command  = "echo ${lookup(each.value, "name", "null")}" = ${lookup(each.value, "quantity", "null")}"
+  }
+}
